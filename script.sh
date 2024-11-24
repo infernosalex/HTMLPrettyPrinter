@@ -3,9 +3,12 @@
 # Initialize indent level
 indent=0
 
-while IFS= read -r line; do
+while IFS= read -r line || [[ -n "$line" ]]; do
     # Remove whitespace
     line=$(echo "$line" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+    # Skip empty lines
+    [ -z "$line" ] && continue
 
     # If line has closing tag, decrease indent
     if echo "$line" | grep -q "^</"; then
