@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# List of self-closing tags
+self_closing_tags="area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr"
+
 # Initialize indent level
 indent=0
 
@@ -19,7 +22,14 @@ while IFS= read -r line || [[ -n "$line" ]]; do
     printf "%*s%s\n" $((indent * 4)) "" "$line"
 
     # If line has opening tag, increase indent
-    if echo "$line" | grep -q "^<[^/]"; then
+    # Ignore:
+    # - self-closing tags
+    # - inline tags
+    # - special tags (starting with <!)
+    if echo "$line" | grep -q "^<[^/!]" && \
+       ! echo "$line" | grep -q "/>$" && \
+       ! echo "$line" | grep -q "^<.*>.*</.*>" && \
+       ! echo "$line" | grep -qE "^<($self_closing_tags)[[:space:]>]"; then
         ((indent++))
     fi
 
