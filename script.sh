@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# Check if input file is provided
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <file>"
+    exit 1
+fi
+
+# Check if the provided file exists
+if [ ! -f "$1" ]; then
+    echo "Error: File '$1' not found!"
+    exit 1
+fi
+
 # List of self-closing tags
 self_closing_tags="area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr"
 
