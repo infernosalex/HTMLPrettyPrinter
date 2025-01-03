@@ -1,11 +1,11 @@
 # HTMLPrettyPrinter
-<div style="text-align: center;">
-  <img src="https://github.com/user-attachments/assets/7014efdd-031b-4120-aff4-ceef1fcd4c31" alt="HPP logo" style="border-radius: 50%; width: 150px; height: 150px;">
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7014efdd-031b-4120-aff4-ceef1fcd4c31" alt="HPP logo" width="150" height="150" style="border-radius: 50%;">
   <br>
   <a href="https://github.com/infernosalex/HTMLPrettyPrinter">
     <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub">
   </a>
-</div>
+</p>
 
 This is a simple HTML pretty printer that takes an HTML file and prints it in a more readable format. It is written in Bash.
 
